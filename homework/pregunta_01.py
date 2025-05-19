@@ -26,7 +26,7 @@ def save_output(name, dataframe):
     output_directory = "files/output"
     if not os.path.exists(output_directory):    
         os.makedirs(output_directory)
-    dataframe.to_csv(name)
+    dataframe.to_csv(name, index=False)
     
 
 def pregunta_01():
@@ -68,7 +68,7 @@ def pregunta_01():
             0001.txt
             ...
     ```
-    
+
     A partir de esta informacion escriba el código que permita generar
     dos archivos llamados "train_dataset.csv" y "test_dataset.csv". Estos
     archivos deben estar ubicados en la carpeta "output" ubicada en la raiz
