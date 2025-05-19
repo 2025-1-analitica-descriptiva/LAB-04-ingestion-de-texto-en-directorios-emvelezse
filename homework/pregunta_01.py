@@ -4,7 +4,30 @@
 """
 Escriba el codigo que ejecute la accion solicitada en cada pregunta.
 """
+import pandas as pd
+import glob
+import fileinput
+import os
+def read_files(input_directory):
+    directory = glob.glob(f"{input_directory}/*")
+    table = []
+    for path in directory:
+        registry = {}
+        target = path.split("\\")[1]
+        list_files = glob.glob(f"{path}/*")
+        for files in list_files:
+            with fileinput.input(files=files) as f:
+                registry["phrase"] = list(f)[0].strip()
+                registry["target"] = target
+                table.append(registry)
+    return table
 
+def save_output(name, dataframe):
+    output_directory = "files/output"
+    if not os.path.exists(output_directory):    
+        os.makedirs(output_directory)
+    dataframe.to_csv(name, index=False)
+    
 
 def pregunta_01():
     """
@@ -12,6 +35,7 @@ def pregunta_01():
     archivo "files/input.zip" ubicado en la carpeta raíz.
     Descomprima este archivo.
 
+    
     Como resultado se creara la carpeta "input" en la raiz del
     repositorio, la cual contiene la siguiente estructura de archivos:
 
@@ -71,3 +95,13 @@ def pregunta_01():
 
 
     """
+    table_train = read_files("input/train")
+    table_test = read_files("input/test")
+    df_train = pd.DataFrame(table_train)
+    df_test = pd.DataFrame(table_test)
+
+    save_output("files/output/train_dataset.csv", df_train)
+    save_output("files/output/test_dataset.csv", df_test)
+
+
+pregunta_01()
