@@ -26,7 +26,7 @@ def save_output(name, dataframe):
     output_directory = "files/output"
     if not os.path.exists(output_directory):    
         os.makedirs(output_directory)
-    dataframe.to_csv(name, index=False)
+    dataframe.to_csv(name)
     
 
 def pregunta_01():
