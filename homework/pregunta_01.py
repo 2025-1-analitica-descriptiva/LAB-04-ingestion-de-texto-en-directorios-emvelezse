@@ -26,7 +26,8 @@ def save_output(name, dataframe):
     output_directory = "files/output"
     if not os.path.exists(output_directory):    
         os.makedirs(output_directory)
-    dataframe.to_csv(name)
+    # dataframe.to_csv(name)
+    dataframe[['phrase', 'target']].to_csv(name, index=False)
     
 
 def pregunta_01():
