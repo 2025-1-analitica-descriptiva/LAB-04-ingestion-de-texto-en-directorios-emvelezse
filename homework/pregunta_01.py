@@ -101,6 +101,7 @@ def pregunta_01():
     """
     table_train = read_files("input/train")
     table_test = read_files("input/test")
+    
     df_train = pd.DataFrame(table_train)
     df_test = pd.DataFrame(table_test)
     print(df_train.columns)
