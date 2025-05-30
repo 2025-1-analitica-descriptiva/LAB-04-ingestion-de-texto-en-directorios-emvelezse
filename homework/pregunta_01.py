@@ -27,7 +27,7 @@ def save_output(name, dataframe:pd.DataFrame):
     if not os.path.exists(output_directory):    
         os.makedirs(output_directory)
     print(dataframe.columns)
-    dataframe.to_csv(name, index=False, sep=",")
+    dataframe.to_csv(name)
     # dataframe[['phrase', 'target']].to_csv(name)
     
 
@@ -99,8 +99,8 @@ def pregunta_01():
     """
     table_train = read_files("input/train")
     table_test = read_files("input/test")
-    df_train = pd.DataFrame(table_train)
-    df_test = pd.DataFrame(table_test)
+    df_train = pd.DataFrame(table_train).reset_index()
+    df_test = pd.DataFrame(table_test).reset_index()
 
     save_output("files/output/train_dataset.csv", df_train)
     save_output("files/output/test_dataset.csv", df_test)
