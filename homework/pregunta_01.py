@@ -22,13 +22,13 @@ def read_files(input_directory):
                 table.append(registry)
     return table
 
-def save_output(name, dataframe):
+def save_output(name, dataframe:pd.DataFrame):
     output_directory = "files/output"
     if not os.path.exists(output_directory):    
         os.makedirs(output_directory)
     print(dataframe.columns)
-    # dataframe.to_csv(name)
-    dataframe[['phrase', 'target']].to_csv(name)
+    dataframe.to_csv(name)
+    # dataframe[['phrase', 'target']].to_csv(name)
     
 
 def pregunta_01():
