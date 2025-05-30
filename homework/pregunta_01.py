@@ -13,9 +13,8 @@ def read_files(input_directory):
     table = []
     for path in directory:
         registry = {}
-        target = path.split("\\")[1]
-        print("target")
-        print(target)
+        print(path)
+        target = path.split("/")[2]
         list_files = glob.glob(f"{path}/*")
         for files in list_files:
             with fileinput.input(files=files) as f:
@@ -30,7 +29,6 @@ def save_output(name, dataframe:pd.DataFrame):
         os.makedirs(output_directory)
     print(dataframe.columns)
     dataframe.to_csv(name)
-    # dataframe[['phrase', 'target']].to_csv(name)
     
 
 def pregunta_01():
@@ -104,14 +102,5 @@ def pregunta_01():
     
     df_train = pd.DataFrame(table_train)
     df_test = pd.DataFrame(table_test)
-    print(df_train.columns)
-    print(df_train.shape)
-    print("*"*40)
-    # df_train.to_csv("files/output/train_dataset.csv",columns=['phrase', 'target'], index=False)
-    # df_test.to_csv("files/output/test_dataset.csv", columns=['phrase', 'target'], index=False)
-    # df_train.to_csv("files/output/train_dataset.csv")
-    # df_test.to_csv("files/output/test_dataset.csv")
     save_output("files/output/train_dataset.csv", df_train)
     save_output("files/output/test_dataset.csv", df_test)
-
-pregunta_01()
