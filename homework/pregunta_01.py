@@ -101,6 +101,9 @@ def pregunta_01():
     table_test = read_files("input/test")
     df_train = pd.DataFrame(table_train).reset_index()
     df_test = pd.DataFrame(table_test).reset_index()
-
-    save_output("files/output/train_dataset.csv", df_train)
-    save_output("files/output/test_dataset.csv", df_test)
+    print(df_train.columns)
+    print("*"*40)
+    df_train.to_csv("files/output/train_dataset.csv")
+    df_test.to_csv("files/output/test_dataset.csv")
+    # save_output("files/output/train_dataset.csv", df_train)
+    # save_output("files/output/test_dataset.csv", df_test)
