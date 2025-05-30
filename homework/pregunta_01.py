@@ -14,6 +14,8 @@ def read_files(input_directory):
     for path in directory:
         registry = {}
         target = path.split("/")[1]
+        print("target")
+        print(target)
         list_files = glob.glob(f"{path}/*")
         for files in list_files:
             with fileinput.input(files=files) as f:
