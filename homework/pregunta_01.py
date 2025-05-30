@@ -13,7 +13,7 @@ def read_files(input_directory):
     table = []
     for path in directory:
         registry = {}
-        target = path.split("\\")[1]
+        target = path.split("/")[1]
         list_files = glob.glob(f"{path}/*")
         for files in list_files:
             with fileinput.input(files=files) as f:
