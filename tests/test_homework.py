@@ -7,13 +7,13 @@ import os.path
 
 import pandas as pd  # type: ignore
 
-# from homework import pregunta_01 as pregunta
+from homework import pregunta_01 as pregunta
 
 
 def test_01():
     """Test homework"""
 
-    # pregunta.pregunta_01()
+    pregunta.pregunta_01()
 
     if not os.path.exists("files/output/train_dataset.csv"):
         raise FileNotFoundError("File 'files/output/train_dataset.csv' not found")
