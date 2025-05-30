@@ -13,7 +13,7 @@ def read_files(input_directory):
     table = []
     for path in directory:
         registry = {}
-        target = path.split("/")[1]
+        target = path.split("\\")[1]
         print("target")
         print(target)
         list_files = glob.glob(f"{path}/*")
@@ -109,7 +109,9 @@ def pregunta_01():
     print("*"*40)
     # df_train.to_csv("files/output/train_dataset.csv",columns=['phrase', 'target'], index=False)
     # df_test.to_csv("files/output/test_dataset.csv", columns=['phrase', 'target'], index=False)
-    df_train.to_csv("files/output/train_dataset.csv")
-    df_test.to_csv("files/output/test_dataset.csv")
-    # save_output("files/output/train_dataset.csv", df_train)
-    # save_output("files/output/test_dataset.csv", df_test)
+    # df_train.to_csv("files/output/train_dataset.csv")
+    # df_test.to_csv("files/output/test_dataset.csv")
+    save_output("files/output/train_dataset.csv", df_train)
+    save_output("files/output/test_dataset.csv", df_test)
+
+pregunta_01()
