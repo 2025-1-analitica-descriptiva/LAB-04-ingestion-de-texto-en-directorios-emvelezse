@@ -27,7 +27,7 @@ def save_output(name, dataframe:pd.DataFrame):
     if not os.path.exists(output_directory):    
         os.makedirs(output_directory)
     print(dataframe.columns)
-    dataframe.to_csv(name, index=0)
+    dataframe.to_csv(name, index=True)
     # dataframe[['phrase', 'target']].to_csv(name)
     
 

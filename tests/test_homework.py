@@ -18,7 +18,7 @@ def test_01():
     if not os.path.exists("files/output/train_dataset.csv"):
         raise FileNotFoundError("File 'files/output/train_dataset.csv' not found")
 
-    train_dataset = pd.read_csv("files/output/train_dataset.csv")
+    train_dataset = pd.read_csv("files/output/train_dataset.csv", sep=",")
 
     assert "phrase" in train_dataset.columns
     assert "target" in train_dataset.columns
